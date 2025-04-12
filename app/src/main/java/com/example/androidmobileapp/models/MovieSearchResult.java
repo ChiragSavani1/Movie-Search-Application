@@ -6,13 +6,13 @@ import java.util.List;
 
 public class MovieSearchResult {
     @SerializedName("Search")
-    private List<Movie> movies;
+    private final List<Movie> movies;
     @SerializedName("totalResults")
-    private String totalResults;
+    private final String totalResults;
     @SerializedName("Response")
-    private String response;
+    private final String response;
     @SerializedName("Error")
-    private String error;
+    private final String error;
 
     // Constructor
     public MovieSearchResult(List<Movie> movies, String totalResults, String response, String error) {

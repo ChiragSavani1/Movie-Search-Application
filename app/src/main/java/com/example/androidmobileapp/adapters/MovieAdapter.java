@@ -20,17 +20,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private List<Movie> movies;
     private final OnItemClickListener listener;
 
+
     public interface OnItemClickListener {
         void onItemClick(Movie movie);
     }
 
-    public MovieAdapter(OnItemClickListener listener) {
-        this.listener = listener;
-    }
-
-    public void setMovies(List<Movie> movies) {
+    public MovieAdapter(List<Movie> movies, OnItemClickListener listener) {
         this.movies = movies;
-        notifyDataSetChanged();
+        this.listener = listener;
     }
 
     @NonNull
@@ -44,14 +41,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movies.get(position);
-        holder.bind(movie);
-        holder.itemView.setOnClickListener(v -> listener.onItemClick(movie));
+        holder.bind(movie, listener);
     }
 
     @Override
     public int getItemCount() {
         return movies != null ? movies.size() : 0;
     }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
+        notifyDataSetChanged();
+    }
+
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         private final ImageView posterImageView;
@@ -65,7 +67,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             yearTextView = itemView.findViewById(R.id.yearTextView);
         }
 
-        public void bind(Movie movie) {
+
+        public void bind(Movie movie, OnItemClickListener listener) {
             Glide.with(itemView.getContext())
                     .load(movie.getPosterUrl())
                     .placeholder(R.drawable.ic_movie_placeholder)
@@ -74,6 +77,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
             titleTextView.setText(movie.getTitle());
             yearTextView.setText(movie.getYear());
+
+            itemView.setOnClickListener(v -> listener.onItemClick(movie));
         }
     }
 }

@@ -32,10 +32,34 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moviesRecyclerView"
-        android:layout_width="388dp"
-        android:layout_height="656dp"
+        android:layout_width="378dp"
+        android:layout_height="488dp"
         android:layout_marginTop="16dp"
         android:background="#E1A5EB"
         android:keepScreenOn="true"
         android:scrollbars="horizontal|vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/navSearchButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Search"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/navFavButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Favourites"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </LinearLayout>
+

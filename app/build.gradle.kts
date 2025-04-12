@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
 
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -9,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.androidmobileapp"
-        minSdk = 24  // Or 26 if you want to keep adaptive icons
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -38,6 +39,8 @@ android {
 
 dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -58,4 +61,9 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation("com.google.firebase:firebase-analytics:21.6.1")
+
+    // Firebase Realtime Database
+    implementation("com.google.firebase:firebase-database:20.3.0")
 }

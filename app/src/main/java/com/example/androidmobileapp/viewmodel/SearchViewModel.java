@@ -11,9 +11,9 @@ import com.example.androidmobileapp.repository.MovieRepository;
 import java.util.List;
 
 public class SearchViewModel extends ViewModel {
-    private MovieRepository repository = new MovieRepository();
-    private MutableLiveData<ApiResponse<List<Movie>>> searchResults = new MutableLiveData<>();
-    private MutableLiveData<ApiResponse<Movie>> movieDetails = new MutableLiveData<>();
+    private final MovieRepository repository = new MovieRepository();
+    private final MutableLiveData<ApiResponse<List<Movie>>> searchResults = new MutableLiveData<>();
+    private final MutableLiveData<ApiResponse<Movie>> movieDetails = new MutableLiveData<>();
 
     public LiveData<ApiResponse<List<Movie>>> getSearchResults() {
         return searchResults;

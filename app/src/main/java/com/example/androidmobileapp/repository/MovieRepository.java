@@ -16,7 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MovieRepository {
-    private ApiInterface apiService = ApiClient.getClient();
+    private final ApiInterface apiService = ApiClient.getClient();
 
     public void searchMovies(String query, MutableLiveData<ApiResponse<List<Movie>>> liveData) {
         // Change this line to include type=movie

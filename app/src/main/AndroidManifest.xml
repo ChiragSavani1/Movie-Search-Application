@@ -11,17 +11,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidMobileApp">
 
+        <!--  Launch Activity -->
         <activity
-            android:name=".ui.MovieDetailsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.SearchActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--  Register screen -->
+        <activity
+            android:name=".ui.RegisterActivity"
+            android:exported="true" />
+
+        <!--  Search screen -->
+        <activity
+            android:name=".ui.SearchActivity"
+            android:exported="true" />
+
+        <!--  Movie Details screen (from Search) -->
+        <activity
+            android:name=".ui.MovieDetailsActivity"
+            android:exported="false" />
+
+        <!--  Favorite Movies list -->
+        <activity
+            android:name=".ui.FavoriteMoviesActivity"
+            android:exported="true" />
+
+        <!--  Favorite Movie Details screen -->
+        <activity
+            android:name=".ui.FavoriteMovieDetailsActivity"
+            android:exported="true" />
+
     </application>
 </manifest>

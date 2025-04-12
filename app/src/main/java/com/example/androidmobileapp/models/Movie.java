@@ -25,17 +25,10 @@ public class Movie {
     private String plot;
 
 
-    public Movie(String imdbID, String title, String year, String studio, String rating,
-                 String posterUrl, String plot) {
-        this.imdbID = imdbID;
-        this.title = title;
-        this.year = year;
-        this.studio = studio;
-        this.rating = rating;
-        this.posterUrl = posterUrl;
-        this.plot = plot;
-
+    public Movie() {
+        // Required for Firebase
     }
+
 
     // Getters
     public String getImdbID() { return imdbID; }
